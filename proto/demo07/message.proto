@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_package = "wang.congjun.demo07.pojo";
+option java_outer_classname = "TestMessage";
+
+
+message Header {
+    int32 contentLength = 1;
+    enum Method {
+        HEATBEAT = 0;
+        CUSTOM = 1;
+    }
+    Method metod = 2;
+    string version = 3;
+}
+
+message HeatBeat{
+    int32 id = 1;
+    string msg = 2;
+}
+message Custom{
+    int32 id = 1;
+    string className = 2;
+    bytes data = 3;
+}
+message Message {
+    Header header = 1;
+    bytes body = 2;
+}
