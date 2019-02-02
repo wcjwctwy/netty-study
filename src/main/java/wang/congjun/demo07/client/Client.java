@@ -11,7 +11,7 @@ import io.netty.util.CharsetUtil;
  * @author WangCongJun
  * Created by WangCongJun on 2019/1/29.
  */
-public class Client7 {
+public class Client {
     public static void main(String[] args) throws Exception{
         NioEventLoopGroup workGroup = new NioEventLoopGroup();
         Bootstrap b = new Bootstrap();
@@ -20,7 +20,6 @@ public class Client7 {
                 .handler(new ClientChannelInit())
                 .connect("127.0.0.1", 8899)
                 .sync();
-        cf.channel().writeAndFlush(Unpooled.copiedBuffer("hello server",CharsetUtil.UTF_8));
         System.out.println("客户端初始化完成!!!!");
         cf.channel().closeFuture().sync();
     }

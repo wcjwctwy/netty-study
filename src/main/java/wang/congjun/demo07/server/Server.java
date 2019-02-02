@@ -9,7 +9,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @author WangCongJun
  * Created by WangCongJun on 2019/1/29.
  */
-public class Server7 {
+public class Server {
     public static void main(String[] args) throws Exception{
         //创建两个组，分别用来接受客户端情求和处理客户端消息的
         NioEventLoopGroup bossGroup = new NioEventLoopGroup();
