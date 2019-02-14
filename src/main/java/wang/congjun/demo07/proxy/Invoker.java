@@ -22,6 +22,9 @@ public class Invoker {
                 Request request = new Request();
                 request.setMethod(method.getName());
                 request.setParams(args);
+                //将参数类型一并传输过去 防止基本数据类型的拆包问题
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                request.setParamsTypes(parameterTypes);
                 request.setClassName(proxy.getClass().getName().indexOf('$') < 0 ? proxy.getClass().getName() : type.getName());
                 Object result = instance.sendMsg(request);
                 return result;
@@ -29,8 +32,10 @@ public class Invoker {
         });
         System.out.println(o instanceof Test);
         Test t = (Test)o;
-        System.out.println(t.test());
-        System.out.println(t.test(1,1));
-        System.out.println(t.test());
+        Integer a = 1;
+        int b = 1;
+//        System.out.println(t.test());
+        System.out.println(t.test(a,b));
+//        System.out.println(t.test());
     }
 }

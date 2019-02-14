@@ -31,8 +31,13 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
             }
 
             @Override
-            public Integer test(Integer a, Integer b) {
+            public Integer test(int a, int b) {
                 return a+b;
+            }
+
+            @Override
+            public Integer test(Integer a, int b) {
+                return a-b;
             }
         });
         instances.put(Test.class.getName(),instance);
@@ -58,13 +63,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
                     Method method = aClass.getMethod(req.getMethod());
                     result = method.invoke(o);
                 } else {
-                    Integer len = params.length;
-                    Class[] classes = new Class[len];
-                    for (int i = 0; i < len; i++) {
-                        Class<?> aClass1 = params[i].getClass();
-                        classes[i] = aClass1;
-                    }
-                    Method method = aClass.getMethod(req.getMethod(), classes);
+                    Method method = aClass.getMethod(req.getMethod(), req.getParamsTypes());
                     result = method.invoke(o, params);
                 }
 
