@@ -1,7 +1,7 @@
 package wang.congjun.demo07.proxy;
 
 import wang.congjun.demo07.client.Client;
-import wang.congjun.demo07.pojo.Request;
+import wang.congjun.demo07.pojo.InvokeRequest;
 import wang.congjun.demo07.test.Test;
 
 import java.lang.reflect.InvocationHandler;
@@ -19,14 +19,14 @@ public class Invoker {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Client instance = Client.getInstance();
-                Request request = new Request();
-                request.setMethod(method.getName());
-                request.setParams(args);
+                InvokeRequest invokeRequest = new InvokeRequest();
+                invokeRequest.setMethod(method.getName());
+                invokeRequest.setParams(args);
                 //将参数类型一并传输过去 防止基本数据类型的拆包问题
                 Class<?>[] parameterTypes = method.getParameterTypes();
-                request.setParamsTypes(parameterTypes);
-                request.setClassName(proxy.getClass().getName().indexOf('$') < 0 ? proxy.getClass().getName() : type.getName());
-                Object result = instance.sendMsg(request);
+                invokeRequest.setParamsTypes(parameterTypes);
+                invokeRequest.setClassName(proxy.getClass().getName().indexOf('$') < 0 ? proxy.getClass().getName() : type.getName());
+                Object result = instance.sendMsg(invokeRequest);
                 return result;
             }
         });

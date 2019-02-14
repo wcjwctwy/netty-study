@@ -5,8 +5,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
 import wang.congjun.demo07.listener.CallbackFutureListener;
 import wang.congjun.demo07.pojo.Instance;
+import wang.congjun.demo07.pojo.InvokeRequest;
 import wang.congjun.demo07.pojo.Person;
-import wang.congjun.demo07.pojo.Request;
 import wang.congjun.demo07.test.Test;
 
 import java.lang.reflect.Method;
@@ -52,8 +52,8 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
             }
             //转换数据
             System.out.println("接受到数据是：" + msg);
-            if (msg instanceof Request) {
-                Request req = (Request) msg;
+            if (msg instanceof InvokeRequest) {
+                InvokeRequest req = (InvokeRequest) msg;
                 String className = req.getClassName();
                 Instance instance = instances.get(className);
                 Class<?> aClass = instance.getClazz();

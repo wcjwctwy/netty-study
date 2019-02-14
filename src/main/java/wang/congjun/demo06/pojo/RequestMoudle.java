@@ -34,14 +34,14 @@ public final class RequestMoudle {
         getMsgBytes();
   }
   /**
-   * Protobuf type {@code Request}
+   * Protobuf type {@code InvokeRequest}
    */
   public  static final class Request extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Request)
+      // @@protoc_insertion_point(message_implements:InvokeRequest)
       RequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Request.newBuilder() to construct.
+    // Use InvokeRequest.newBuilder() to construct.
     private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
@@ -327,11 +327,11 @@ public final class RequestMoudle {
       return builder;
     }
     /**
-     * Protobuf type {@code Request}
+     * Protobuf type {@code InvokeRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Request)
+        // @@protoc_insertion_point(builder_implements:InvokeRequest)
         wang.congjun.demo06.pojo.RequestMoudle.RequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -346,7 +346,7 @@ public final class RequestMoudle {
                 wang.congjun.demo06.pojo.RequestMoudle.Request.class, wang.congjun.demo06.pojo.RequestMoudle.Request.Builder.class);
       }
 
-      // Construct using wang.congjun.demo06.pojo.RequestMoudle.Request.newBuilder()
+      // Construct using wang.congjun.demo06.pojo.RequestMoudle.InvokeRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -587,10 +587,10 @@ public final class RequestMoudle {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:Request)
+      // @@protoc_insertion_point(builder_scope:InvokeRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:Request)
+    // @@protoc_insertion_point(class_scope:InvokeRequest)
     private static final wang.congjun.demo06.pojo.RequestMoudle.Request DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new wang.congjun.demo06.pojo.RequestMoudle.Request();
